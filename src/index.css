@@ -1,13 +1,130 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    font-family: 'DM Sans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
+    font-family: 'DM Sans';
+
 }
+.loading-indicator:before {
+  content: '';
+  background: #0000002b;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.loading-indicator:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 999999;
+  background-image: url('../src//Components//Assets/gradient-5812_256.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  left: 50%;
+  top: 50%;
+}
+.MuiTableHead-root {
+  height: 10px;
+  justify-content: 60px;
+  background-color: #e0ebed; /* Adjust the color as needed .css-dk8izd-MuiTableHead-root*/
+}
+.MuiTableRow-root {
+  height: 50px;
+  justify-content: 60px;
+  background-color: #e0ebed; /* Adjust the color as needed .css-dk8izd-MuiTableHead-root*/
+}
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiTableSortLabel-icon.MuiTableSortLabel-iconDirectionAsc.css-1vweko9-MuiSvgIcon-root-MuiTableSortLabel-icon {
+  display: none;
+}
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root[data-testid="DensityMediumIcon"] {
+  display: none;
+  
+}
+.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+  margin: 5; /* Reset margin */
+  padding: 5; /* Reset padding */
+}
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  margin: 5; /* Reset margin */
+  padding: 5; /* Reset padding */
+}
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root[data-testid="DensityLargeIcon"] {
+  display: none;
+  
+}
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root[data-testid="DensitySmallIcon"] {
+  display: none;
+}
+.MuiTableRow-root.MuiTableRow-head.css-7sv680-MuiTableRow-root {
+  background-color: #e0ebed;
+}
+.MuiTableHead-root.css-dk8izd-MuiTableHead-root {
+  background-color: #e0ebed;
+}
+.MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root { 
+  visibility: visible !important;
+}
+.Mui-TableHeadCell-Content-Actions {
+  display: none;
+}
+.MuiTableRow-root.css-hsi95o-MuiTableRow-root {
+  height: 2px; /* Set your desired height for the table rows */
+}
+
+
+.customTableCell {
+  padding: 8px; /* Adjust the padding within each table cell */
+}
+
+.customTableHeader {
+  padding: 8px; /* Adjust the padding in the table header */
+}
+ .customTable {
+ 
+  border: 10px solid;
+  border-image: linear-gradient(183.5deg, #DF7FF7 -6.25%, #511FBB 94.45%) 1; /* Set border color to linear gradient */
+ }
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation2.css-1atu56z-MuiPaper-root {
+  max-height: 645px; /* Set the maximum height for the table content */
+  overflow: auto; /* Add scroll functionality if content exceeds the height */
+}
+/* .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation2.css-1atu56z-MuiPaper-root {
+  border: 10px solid;
+  border-image: linear-gradient(183.5deg, #DF7FF7 -6.25%, #511FBB 94.45%) 1;
+} */
+.customTableContainer {
+  height: 1600px; /* Set the desired height for the table container */
+  overflow: auto; /* Add scroll functionality if content exceeds the height */
+}
+.css-1vymvl2-MuiTableCell-root {
+  font-family: 'DM Sans';
+}
+.css-29nbga-MuiTableBody-root {
+  font-family: 'DM Sans';
+}
+.MuiTableRow-root.MuiTableRow-head.css-7sv680-MuiTableRow-root {
+  background-color: #e0ebed;
+}
+
+
+
+
+
+
+
+
+
+

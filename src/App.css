@@ -13,6 +13,14 @@
   }
 }
 
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./assets/fonts/DM_Sans/static/DMSans-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
