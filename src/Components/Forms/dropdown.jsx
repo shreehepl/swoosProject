@@ -45,7 +45,7 @@ export default function ComboBox({onChange}:any) {
     // Implement delete functionality
     console.log('Delete:', option);
     try {
-      await axios.delete(`http://localhost:8080/api/delete/${option.id}`);
+      await axios.delete(`http://localhost:8080/api/reason/${option.dropdownId}`);
       const updatedData = filmData.filter(item => item.id !== option.id);
       setFilmData(updatedData);
       setValue(null); // Reset the selected value if deleted

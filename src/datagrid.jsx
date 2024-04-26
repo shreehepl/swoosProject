@@ -15,12 +15,33 @@ const Datagrid = ({tableData}) => {
   });
   
   const generateData = (tableData) => {
+    const reasons = [
+      'MRP update',
+      'Pack size update',
+      'Wrong delivery from depot',
+      'Brand revamp',
+      'Logistics delay',
+      'Promo demand spike',
+      'Discontinued',
+      'GRN / Platform Go-Live Delay',
+      'Disputed',
+      'Commercial / Contractual issue',
+      'Delisted',
+      'Tech Issue',
+      'Duplicate Seller',
+      'Discontinued',
+      'MOQ Issue',
+      'Order Cancellation',
+      'Platform issue',
+      'Location not Aligned',
+      'Product isn\'t alive at a specific PIN'
+    ];
     console.log(tableData);
     const data = tableData.map((row, index) => {
       return {
         ...row,
         serialNumber: index + 1,
-        LastDayReason: 'Your static value here' // Incremental serial number starting from 1
+        LastDayReason: reasons[index % reasons.length] // Incremental serial number starting from 1
       };
     });
     return data;   
