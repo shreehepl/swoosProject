@@ -252,7 +252,7 @@ const PostDataForm = ({ handleLanding }) => {
         password: password
       }
     );
-      console.log(res.data)
+      // console.log(res.data)
      sessionStorage.setItem('accessToken',true)
      handleSubmit();
      
