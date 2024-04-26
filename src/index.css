@@ -83,8 +83,6 @@ code {
 .MuiTableRow-root.css-hsi95o-MuiTableRow-root {
   height: 2px; /* Set your desired height for the table rows */
 }
-
-
 .customTableCell {
   padding: 8px; /* Adjust the padding within each table cell */
 }
@@ -118,6 +116,10 @@ code {
 .MuiTableRow-root.MuiTableRow-head.css-7sv680-MuiTableRow-root {
   background-color: #e0ebed;
 }
+.MuiTableCell-root {
+  text-align: center !important;
+}
+
 
 
 

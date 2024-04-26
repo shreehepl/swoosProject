@@ -19,7 +19,8 @@ const Datagrid = ({tableData}) => {
     const data = tableData.map((row, index) => {
       return {
         ...row,
-        serialNumber: index + 1 // Incremental serial number starting from 1
+        serialNumber: index + 1,
+        LastDayReason: 'Your static value here' // Incremental serial number starting from 1
       };
     });
     return data;   
@@ -228,6 +229,9 @@ const Datagrid = ({tableData}) => {
             accessorKey: 'valueLoss',
             header: 'Value Loss',
             size: 100,
+  //           Cell: ({ cell }) => (
+  //   <button onClick={() => handleValueLossClick(cell.value)}>{cell.value}</button>
+  // ),
       },
       {
         accessorKey: 'swooscontribution',
@@ -270,6 +274,9 @@ const Datagrid = ({tableData}) => {
         accessorKey: 'LastDayReason',
         header: 'Last Day Reason',
         size: 100,
+        Cell: ({ cell }) => (
+          <span>{cell.value}</span> // Assuming cell.value contains the static value
+        ),
       },
       {
         accessorKey: 'Submit',

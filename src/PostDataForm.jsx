@@ -210,6 +210,7 @@ const PostDataForm = ({ handleLanding }) => {
   // const [setResponse] = useState('');
   const [inputValue, setInputValue] = useState({  email: '',
   password: '', });
+  
   const [data, setData] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

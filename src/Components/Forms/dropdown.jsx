@@ -3,6 +3,9 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton } from '@mui/material';
 import SubmitButton from './submitButton'; // Import the SubmitButton component
 import { useNavigate } from 'react-router-dom';
 
@@ -33,6 +36,24 @@ export default function ComboBox({onChange}:any) {
     }
   };
 
+  const handleEdit = (option) => {
+    // Implement edit functionality
+    console.log('Edit:', option);
+  };
+
+  const handleDelete = async (option) => {
+    // Implement delete functionality
+    console.log('Delete:', option);
+    try {
+      await axios.delete(`http://localhost:8080/api/delete/${option.id}`);
+      const updatedData = filmData.filter(item => item.id !== option.id);
+      setFilmData(updatedData);
+      setValue(null); // Reset the selected value if deleted
+    } catch (error) {
+      console.error('Error deleting item:', error);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -57,7 +78,7 @@ export default function ComboBox({onChange}:any) {
         }}
         inputValue={inputValue}
         onInputChange={handleInputChange}
-        sx={{ width: 180, minHeight: '20px' }}
+        sx={{ width: 220, minHeight: '20px' }}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -78,7 +99,20 @@ export default function ComboBox({onChange}:any) {
           <Paper style={{ overflow: 'auto', zIndex: 9999 }}>{children}</Paper>
         )}
         getOptionLabel={(option) => option.description}
+        renderOption={(props, option) => (
+          <li {...props}>
+            {option.description}
+            <IconButton size="small" onClick={() => handleEdit(option)}>
+              <EditIcon />
+            </IconButton>
+            <IconButton size="small" onClick={() => handleDelete(option)}>
+              <DeleteIcon />
+            </IconButton>
+          </li>
+        )}
       />
     </>
   );
 }
+
+

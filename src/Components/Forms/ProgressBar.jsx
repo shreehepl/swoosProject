@@ -6,7 +6,7 @@ const theme = createTheme({
     MuiLinearProgress: {
       styleOverrides: {
         root: {
-          backgroundColor: '#EDEDED', 
+          backgroundColor: '#e0ebed', 
         },
       },
     },
@@ -17,7 +17,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 14,
   borderRadius: 4,
   '& .MuiLinearProgress-bar': {
-    backgroundColor: 'green',
+    backgroundColor: 'red',
   },
 }));
 
@@ -40,7 +40,7 @@ const ProgressBar = ({percentage}) => {
             lineHeight: '14.63px',
             letterSpacing: 0,
             textAlign: 'center',
-            color: 'white',
+            color: 'black',
           }}
         >
           {percentage}%     
