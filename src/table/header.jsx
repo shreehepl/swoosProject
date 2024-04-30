@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppBar, Avatar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { CustomIconButton } from './headerstyles';
+import { CustomIconButton } from '../Components/Forms/headerstyles';
 
 
 export default function HeaderAppBar() {
@@ -16,7 +16,7 @@ export default function HeaderAppBar() {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('accessToken');
+    // sessionStorage.removeItem('accessToken');
     sessionStorage.clear();
     console.log('Logging out...');
     handleMenuClose();

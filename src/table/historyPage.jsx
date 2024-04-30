@@ -1,5 +1,5 @@
 import React from 'react';
-import DatagridSubmit from '../../datagrid-submit';
+import DatagridSubmit from '../../src/table/datagrid-submit';
 
 const rowData = JSON.parse(sessionStorage.getItem('updatedRow'));
 console.log(rowData,'rowData')

@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostDataForm from '../PostDataForm';
-import HistoryPage from '../Components/Forms/historyPage';
+import PostDataForm from '../table/PostDataForm';
+import HistoryPage from '../table/historyPage';
 const AppRoutes = () => {
 
   return (

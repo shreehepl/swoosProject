@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { MaterialReactTable, useMaterialReactTable, MRT_ColumnDef } from 'material-react-table';
 import { Box, Typography } from '@mui/material';
-import ProgressBar from './Components/Forms/ProgressBar';
+import ProgressBar from '../Components/Forms/ProgressBar';
 import HeaderAppBar from './header';
 
 const Datagrid = ({tableData}) => {

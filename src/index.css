@@ -121,6 +121,59 @@ code {
 }
 
 
+.cellWithTooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.cellWithTooltip:hover::after {
+  content: attr(title);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+/* Hide the scrollbar while still allowing scrolling */
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation2.css-1atu56z-MuiPaper-root::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  background-color: transparent; /* Set the background color of the scrollbar track to transparent */
+}
+
+/* Define the appearance of the scrollbar thumb */
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation2.css-1atu56z-MuiPaper-root::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2); /* Set the color and transparency of the scrollbar thumb */
+  border-radius: 10px; /* Border radius of the scrollbar thumb */
+}
+
+/* Optionally, you can style the scrollbar track as well */
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation2.css-1atu56z-MuiPaper-root::-webkit-scrollbar-track {
+  background-color: transparent; /* Set the background color of the scrollbar track to transparent */
+}
+/* Hide the scrollbar while still allowing scrolling for MuiTableContainer-root */
+.MuiTableContainer-root.css-uhr8s1-MuiTableContainer-root::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  background-color: transparent; /* Set the background color of the scrollbar track to transparent */
+}
+
+/* Define the appearance of the scrollbar thumb for MuiTableContainer-root */
+.MuiTableContainer-root.css-uhr8s1-MuiTableContainer-root::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2); /* Set the color and transparency of the scrollbar thumb */
+  border-radius: 10px; /* Border radius of the scrollbar thumb */
+}
+
+/* Optionally, you can style the scrollbar track as well for MuiTableContainer-root */
+.MuiTableContainer-root.css-uhr8s1-MuiTableContainer-root::-webkit-scrollbar-track {
+  background-color: transparent; /* Set the background color of the scrollbar track to transparent */
+}
+
+
+
+
 
 
 

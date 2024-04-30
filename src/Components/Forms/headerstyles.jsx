@@ -28,13 +28,13 @@ export const StyledInputBase = styled(InputBase)({
   },
 });
  
-export const containerStyle: React.CSSProperties = {
+export const containerStyle = {
   position: 'relative',
   maxWidth: 100,
   maxHeight: 70,
 };
  
-export const backgroundStyle: React.CSSProperties = {
+export const backgroundStyle = {
  
   opacity: 0.3,
   height: '50px',
@@ -42,7 +42,7 @@ export const backgroundStyle: React.CSSProperties = {
  
 };
  
-export const convexLogoStyle: React.CSSProperties = {
+export const convexLogoStyle = {
   position: 'absolute',
   top: '2%',
   left: '5%',

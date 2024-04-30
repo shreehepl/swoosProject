@@ -203,7 +203,7 @@ import { toast, ToastContainer } from 'react-toastify'; // Import ToastContainer
 import 'react-toastify/dist/ReactToastify.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import backgroundimg from '../src/Components/Assets/backgroundimg.svg';
+import backgroundimg from '../Components/Assets/backgroundimg.svg';
  
  
 const PostDataForm = ({ handleLanding }) => {
@@ -239,7 +239,7 @@ const PostDataForm = ({ handleLanding }) => {
       [name]: value,
     }));
   };
-  const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       // Display a message or toast indicating that both fields are required

@@ -1,11 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import { MaterialReactTable, useMaterialReactTable} from 'material-react-table';
-import { Box, Typography } from '@mui/material';
-import SubmitButton from './Components/Forms/submitButton';
-import InputFormat from './Components/Forms/input';
-import Dropdown from './Components/Forms/dropdown';
+import { Box, IconButton, Typography } from '@mui/material';
+import SubmitButton from '../Components/Forms/submitButton';
+import InputFormat from '../Components/Forms/input';
+import Dropdown from '../Components/Forms/dropdown';
 import HeaderAppBar, { Header } from './header';
-import ProgressBar from './Components/Forms/ProgressBar';
+import ProgressBar from '../Components/Forms/ProgressBar';
+import axios from 'axios';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Datagrid = ({tableData}) => {
   const [selectedRow, setSelectedRow] = useState({
@@ -13,6 +15,8 @@ const Datagrid = ({tableData}) => {
     reason: "",
     remarks: ""
   });
+  const [showMap, setShowMap] = useState(false); // State variable to control map visibility
+  const [selectedPincode, setSelectedPincode] = useState('');
   
   const generateData = (tableData) => {
     const reasons = [
@@ -46,6 +50,53 @@ const Datagrid = ({tableData}) => {
     });
     return data;   
   };
+//   const handlePincodeClick = (valueLoss) => {
+//   axios.get(`http://localhost:8080/api/location?id=${1}`)
+//     .then(response => {
+//       const pincodeData = response.data.location; // Access the location object from the response
+//       let alertMessage = '';
+//       // Iterate over the keys of the location object and construct the alert message
+//       for (const key in pincodeData) {
+//         if (pincodeData.hasOwnProperty(key)) {
+//           alertMessage += `${key}: ${pincodeData[key]}\n`;
+//         }
+//       }
+//       // Display the alert with the constructed message
+//       alert(alertMessage);
+//       // Optionally, you can also update state to show the map
+//       setSelectedPincode(pincodeData);
+//       setShowMap(true);
+//     })
+//     .catch(error => {
+//       console.error('Error fetching pincode:', error);
+//       // Handle error
+//     });
+// };
+const handlePincodeClick = (valueLoss, mergedId) => {
+  console.log('Cell value:', valueLoss); // Log the mergedId
+
+  axios.get(`http://localhost:8080/api/location?id=${mergedId}`)
+    .then(response => {
+      const pincodeData = response.data.location; // Access the location object from the response
+      let alertMessage = '';
+      // Iterate over the keys of the location object and construct the alert message
+      for (const key in pincodeData) {
+        if (pincodeData.hasOwnProperty(key)) {
+          alertMessage += `${key}: ${pincodeData[key]}\n`;
+        }
+      }
+      // Display the alert with the constructed message
+      alert(alertMessage);
+      // Optionally, you can also update state to show the map
+      setSelectedPincode(pincodeData);
+      setShowMap(true);
+    })
+    .catch(error => {
+      console.error('Error fetching pincode:', error);
+      // Handle error
+    });
+};
+
 
   const columns = useMemo(
     () => [  
@@ -232,28 +283,38 @@ const Datagrid = ({tableData}) => {
         }
 
       },
- {
-          accessorKey: 'swoosPercentage',
-          header: 'SWOOS %',
+
+{
+  accessorKey: 'swoosPercentage',
+  header: 'SWOOS %',
+  size: 100,
+  Cell: ({ cell }) => {
+    const percentage = parseFloat(cell.value);
+    const reversePercentage = 100 - parseFloat(cell.row.original.swoosPercentage); // Calculate the reverse percentage
+    return (
+      <div style={{ width: '100px', position: 'relative' }}>
+        <ProgressBar percentage={reversePercentage} /> {/* Use the reverse percentage */}
+      </div>
+    );
+  },
+},
+
+       
+        {
+          accessorKey: 'location',
+          header: 'Sales Loss',
           size: 100,
-          Cell: ({ cell }) => {
-            const percentage = parseFloat(cell.value);
-      console.log(cell.row.original.swoosPercentage)
-            return (
-              <div style={{ width: '100px', position: 'relative' }}>
-                <ProgressBar percentage={cell.row.original.swoosPercentage } />
-              </div>
-            );
-          },
+          Cell: ({ cell }) => (
+            <div>
+              <span>{cell.row.original.valueLoss}</span>
+              <IconButton onClick={() => handlePincodeClick(cell.row.original.valueLoss, cell.row.original.mergedId)} aria-label="show-pincode">
+                <LocationOnIcon />
+              </IconButton>
+            </div>
+          ),
         },
-      {
-            accessorKey: 'valueLoss',
-            header: 'Value Loss',
-            size: 100,
-  //           Cell: ({ cell }) => (
-  //   <button onClick={() => handleValueLossClick(cell.value)}>{cell.value}</button>
-  // ),
-      },
+        
+      
       {
         accessorKey: 'swooscontribution',
         header: 'SWOOS Contribution',
@@ -291,14 +352,7 @@ const Datagrid = ({tableData}) => {
           );
         },
       },
-      {
-        accessorKey: 'LastDayReason',
-        header: 'Last Day Reason',
-        size: 100,
-        Cell: ({ cell }) => (
-          <span>{cell.value}</span> // Assuming cell.value contains the static value
-        ),
-      },
+     
       {
         accessorKey: 'Submit',
         header: 'Submit',
